@@ -21,7 +21,7 @@ class SNIP_create_admin_menu {
 	?>
 
 	<div class="useful-snippet-wrapper">
-		<div class="useful-snippet-container" style="overflow-x:auto;">
+		<div class="useful-snippet-container">
 			<?php include 'display_data.php' ?>
 		</div>
 	</div>

@@ -19,14 +19,14 @@ if( !defined( 'ABSPATH' ) ) {
 
 define ( 'SNIP_DIR', plugins_url( __DIR__ ) );
 
-/* loading required scripts */
-
-function useful_snippet_scripts() {
-	wp_enqueue_script( 'useful-snippet-js', WP_PLUGIN_DIR . '/wp-snippets/assets/js/snippet.js', array( 'jquery'), wp_rand(), true );
-	wp_enqueue_style( 'useful-snippet-style', WP_PLUGIN_DIR . '/wp-snippets/assets/css/snippet.css', wp_rand() );
+function custom_enqueue_style() {
+	wp_enqueue_style( 'bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css' );
+	wp_register_script( 'snippet', plugins_url( 'assets/snippet.js', __FILE__ ), array( 'jquery' ), '1.0', true );
+	wp_enqueue_script( 'snippet' );
 }
+add_action( 'admin_enqueue_scripts', 'custom_enqueue_style' );
 
-add_action( 'admin_enqueue_scripts', 'useful_snippet_scripts' );
 
+	
 require_once( 'classes/create_admin_menu.php' );
 require_once( 'classes/create_data.php' );
